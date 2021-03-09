@@ -3,6 +3,8 @@ from pygame.sprite import Group
 
 from settings import Settings
 from ship import Ship
+from game_stats import GameStats
+from button import Button
 import game_function as gf
 
 def run_game():
@@ -18,21 +20,22 @@ def run_game():
     ship = Ship(ai_settings,screen)
     #创建一个用于存储的子弹的编组
     bullets = Group()
+    #创建存储外星人的编组
+    aliens = Group()
+    #创建外星人群
+    gf.create_fleet(ai_settings,screen,ship,aliens)
+    #创建一个用于存储游戏统计信息的实例
+    stats = GameStats(ai_settings)
+    #创建play按钮
+    play_button = Button(ai_settings,screen,"Play")
     #开始游戏的主循环
     while True:
-
         #监视键盘和鼠标事件
-        gf.check_events(ai_settings,screen,ship,bullets)
-        ship.update()
-        bullets.update()
-
-        #删除已消失的子弹
-        for bullet in bullets.copy():
-            if bullet.rect.bottom<0:
-                bullets.remove(bullet)
-        print(len(bullets))
-        #每次循环时重绘屏幕
-        gf.update_screen(ai_settings,screen,ship,bullets)
-
-
+        gf.check_events(ai_settings,screen,stats,play_button,ship,aliens,bullets)
+        if stats.game_active:
+            ship.update()
+            gf.update_bullets(ai_settings,screen,ship,bullets,aliens)
+            gf.update_aliens(ai_settings,stats,screen,ship,aliens,bullets)
+            #每次循环时重绘屏幕
+        gf.update_screen(ai_settings,screen,ship,aliens,bullets,play_button,stats)
 run_game()
