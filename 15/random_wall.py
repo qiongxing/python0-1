@@ -14,12 +14,8 @@ class RandomWalk():
         "计算随机漫步含有的所有点"
         while len(self.x_values) <self.num_points:
             #决定前进方向和前进距离
-            x_direction =choice([1,-1])
-            x_distance =choice([0,1,2,3,4])
-            x_step = x_direction*x_distance
-            y_direction =choice([1,-1])
-            y_distance =choice([0,1,2,3,4])
-            y_step = y_direction*y_distance
+            x_step = self.get_step()
+            y_step =  self.get_step()
 
             #拒绝原地踏步
             if x_step == 0 and y_step ==0:
@@ -33,3 +29,9 @@ class RandomWalk():
             self.y_values.append(next_y)
 
             
+    def get_step(self):
+        "计算行走方向以及步数"
+        wall_direction =choice([1,-1])
+        wall_distance =choice([0,1,2,3,4,5,6,7,8])
+        wall_step = wall_direction*wall_distance
+        return wall_step
