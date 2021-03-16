@@ -1,3 +1,5 @@
 #忽略pyc文件
 *.pyc
 __pycache__/
+Scripts/
+Lib/
