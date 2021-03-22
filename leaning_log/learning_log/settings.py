@@ -24,9 +24,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'dq*i^9ie-fgo@f-^q!yfs1!&c6+9g(m71+5!j5l6=)a31a37l&'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+# 生产环境：qiong-learning-log.herokuapp.com，
+ALLOWED_HOSTS = ['qiong-learning-log.herokuapp.com']
 
 
 # Application definition
@@ -60,7 +61,7 @@ ROOT_URLCONF = 'learning_log.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'learning_log/templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -132,3 +133,20 @@ LOGIN_URL ='/users/login/'
 BOOTSTRAP3 = {
     'include_jquery':True,
 }
+
+#Heroku设置
+if os.getcwd() == '/app':
+    import dj_database_url
+    DATABASES ={
+        'default':dj_database_url.config(default='postgres://localhost')
+    }
+    #让request.is_secure()承认X-Forwarded-Proto头
+    SECURE_PROXY_SSL_HEADER =('HTTP_X_FORWARDED_PROTO','https')
+    #支持所有主机头(host header)
+    ALLOWED_HOSTS = ['*']
+    #静态资源配置
+    BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+    STATIC_ROOT = 'staticfiles'
+    STATICFILES_DIRS =(
+        os.path.join(BASE_DIR,'static'),
+    )
