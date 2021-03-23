@@ -1,0 +1,47 @@
+[33mcommit 159ddf83da7a953d796f78a9b71a21f9767caeef[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31mheroku/master[m[33m)[m
+Author: qiongxing <qiongxing1412@qq.com>
+Date:   Mon Mar 22 17:55:29 2021 +0800
+
+    新增404，500页面
+
+[33mcommit f3fbe8a8ec04062b70c2b74be7496a4cddb2c158[m
+Author: qiongxing <qiongxing1412@qq.com>
+Date:   Mon Mar 22 17:40:03 2021 +0800
+
+    修改配置，非调试模式
+
+[33mcommit 5e584661800bbac342029ad8035da8f763393aa5[m
+Author: qiongxing <qiongxing1412@qq.com>
+Date:   Mon Mar 22 17:28:13 2021 +0800
+
+    修改DIRS
+
+[33mcommit 45047b0c113ee97844963d51266e0ca0aa6988ba[m
+Author: qiongxing <qiongxing1412@qq.com>
+Date:   Mon Mar 22 17:21:39 2021 +0800
+
+    修改配置
+
+[33mcommit 3a034b8ee22ad4864a6d31709fbee44c2d413602[m
+Author: qiongxing <qiongxing1412@qq.com>
+Date:   Mon Mar 22 17:13:35 2021 +0800
+
+    修改setting
+
+[33mcommit 87db805cfbd490af2a55384892274461ccf48cbe[m
+Author: qiongxing <qiongxing1412@qq.com>
+Date:   Mon Mar 22 15:53:57 2021 +0800
+
+    修改runtime版本
+
+[33mcommit d701caa891776b8a7516ed195dd775bc1a67d6c4[m
+Author: qiongxing <qiongxing1412@qq.com>
+Date:   Mon Mar 22 15:51:14 2021 +0800
+
+    修改runtime版本
+
+[33mcommit 05975cf1d7fccd3114a9316400446c4ca6267a57[m
+Author: qiongxing <qiongxing1412@qq.com>
+Date:   Mon Mar 22 15:02:54 2021 +0800
+
+    Ready for deployment to heroku
