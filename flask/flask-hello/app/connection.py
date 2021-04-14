@@ -1,6 +1,6 @@
 import pymysql
 
-
+#直接连接mysql
 def db_conn():
     conn = pymysql.connect(host="127.0.0.1", user="qiong",
                            password="qiong", database="qiongblog", charset="utf8")
